@@ -28,32 +28,31 @@
         </ul>
       </header>
       <section>
-        <h3>
-<a name="pst-extraction-for-marklogic" class="anchor" href="#pst-extraction-for-marklogic"><span class="octicon octicon-link"></span></a>PST Extraction for MarkLogic</h3>
+        <h1>
+<a name="ml-pst-extract" class="anchor" href="#ml-pst-extract"><span class="octicon octicon-link"></span></a>ML-PST-Extract</h1>
+
+<h2>
+<a name="pst-extraction-for-marklogic" class="anchor" href="#pst-extraction-for-marklogic"><span class="octicon octicon-link"></span></a>PST Extraction for MarkLogic</h2>
 
 <h5>
 <a name="forked-from-libpst" class="anchor" href="#forked-from-libpst"><span class="octicon octicon-link"></span></a>Forked from libpst</h5>
 
 <p>.pst - as defined in wiki "A Personal Storage Table (.pst) is an open proprietary file format used to store copies of messages, calendar events, and other items within Microsoft software such as Microsoft Exchange Client, Windows Messaging, and Microsoft Outlook. The open format is controlled by Microsoft who provide free specifications and free irrevocable technology licensing."</p>
 
-<p>It presents a rather interesting (and scary) use-case where prospects might want to do some analytics on the .pst files made available to them by their IT team. As defined above, a .pst is not just for email archives but also calendar events and windows messaging. It can be a part of a huge dataset when clubbed with mailing list, social media feeds, comments and feedback received by the customer service department in an organization.</p>
+<p>As defined above, a .pst is not just for email archives but also calendar events and windows messaging. It can be a part of a huge dataset when clubbed with mailing list, social media feeds, comments and feedback received by the customer service department in an organization.</p>
 
-<p>It used the mail.jar library along with libpst library to read the .pst. It then generates a xml document based on the header and body of the email message for ingestion into MarkLogic. 
-It places attachments associated with a message in the attachment folder. You can use </p>
+<p>It used the mail.jar library along with libpst library to read the .pst. It then generates a xml document based on the header and body of the email message for ingestion into MarkLogic. It places attachments associated with a message in the attachment folder. You can use</p>
 
 <pre><code>xdmp:document-filter() on xdmp:external-binary($path)
 $path : attachment-details/attachment-path
 </code></pre>
 
-<p>to extract the contents of the attachment and embed it into the message.xml created by this utility. </p>
+<p>to extract the contents of the attachment and embed it into the message.xml created by this utility.</p>
 
 <p>Steps to extract from .pst</p>
 
 <pre><code>Place the jar file in the same folder as the .pst
-java - jar ML-PST.jar / simply dbl click the jar file
-</code></pre>
-
-<pre><code>ML-PST-Extract.jar discuss.pst
+java - jar ML-PST-Extract.jar OR dbl click the jar file
 </code></pre>
       </section>
       <footer>
